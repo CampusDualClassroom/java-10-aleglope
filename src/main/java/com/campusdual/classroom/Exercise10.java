@@ -9,7 +9,17 @@ public class Exercise10 {
     // El mensaje a imprimir es → La bola es de color: COLOR_BOLA
     // COLOR_BOLA puede ser → rojo, azul, verde
     public static void main(String[] args) {
+        int blueCount = 0;
 
+        // Bucle para imprimir pelotas hasta que aparezcan 2 azules
+        while (blueCount < 2) {
+            String ballColor = getBall();
+            System.out.println("La bola es de color: " + ballColor);
+
+            if (ballColor.equals("azul")) {
+                blueCount++;
+            }
+        }
     }
 
     //TODO ↓
@@ -20,7 +30,17 @@ public class Exercise10 {
     // 2 → azul
     // 3 → verde
     public static String getBall() {
-        return null;
+        int randomNumber = randomWithRange(1, 4); // Genera un número entre 1 y 3
+        switch (randomNumber) {
+            case 1:
+                return "rojo";
+            case 2:
+                return "azul";
+            case 3:
+                return "verde";
+            default:
+                throw new IllegalArgumentException("Número aleatorio fuera de rango: " + randomNumber);
+        }
     }
 
     public static int randomWithRange(int min, int max) {
